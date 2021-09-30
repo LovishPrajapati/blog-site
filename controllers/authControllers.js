@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const { validationResult } = require("express-validator");
 
-const privateKey = process.env.SECERETKEY;
+const privateKey = process.env.SECRETKEY;
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -17,7 +17,6 @@ const login = async (req, res) => {
       name: user.fullname,
       email: user.email,
       profile: user.profile,
-      isAdmin: user.isAdmin,
       token,
     });
   } else {
@@ -60,7 +59,6 @@ const register = async (req, res) => {
         name: newUser.fullname,
         email: newUser.email,
         profile: newUser.profile,
-        isAdmin: newUser.isAdmin,
         token,
       });
     } else {

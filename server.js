@@ -2,10 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-// const bodyParser = require("body-parser");
-
 const authRoutes = require("./routes/authRoutes");
-// const userRoutes = require("./routes/userRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 
 mongoose
@@ -21,9 +18,10 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
+app.get("/", (req, res) => res.send("hello world"));
+
 app.use("/api", authRoutes);
-// app.use("/api/users", userRoutes);
-app.use("/api/user/:id/blog", blogRoutes);
+app.use("/api/user", blogRoutes);
 
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static("frontend/build"));

@@ -14,7 +14,6 @@ const blogSchema = new mongoose.Schema({
   },
   createdBy: {
     type: String,
-    required: true,
   },
 });
 

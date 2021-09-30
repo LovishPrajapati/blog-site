@@ -4,7 +4,7 @@ const Blog = require("../models/Blog");
 const addBlog = async (req, res, next) => {
   const blog = new Blog(req.body);
   const user = await User.findById(req.user._id);
-  user.blogs.push(note);
+  user.blogs.push(blog);
   if ((await user.save()) && (await blog.save())) {
     res.status(201).json({
       message: "Blog added",
@@ -72,4 +72,22 @@ const getAllBlogs = async (req, res, next) => {
   }
 };
 
-module.exports = { addBlog, updateBlog, deleteBlog, getAllBlogs };
+const getSingleBlog = async (req, res, next) => {
+  try {
+    const blog = await Blog.findById(req.params.blogId);
+    res.status(200).json({
+      blog: blog,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json(error);
+  }
+};
+
+module.exports = {
+  addBlog,
+  updateBlog,
+  deleteBlog,
+  getAllBlogs,
+  getSingleBlog,
+};

@@ -6,13 +6,15 @@ const {
   updateBlog,
   deleteBlog,
   getAllBlogs,
+  getSingleBlog,
 } = require("../controllers/blogControllers");
 
-router.route("/").post(protect, addBlog).get(getAllBlogs);
+router.route(":userId/blog/").post(protect, addBlog);
+router.route("/").get(getAllBlogs);
+router.route("/blog/:blogId").get(getSingleBlog);
 router
-  .route("/:blogId")
+  .route(":userId/blog/:blogId")
   .put(protect, updateBlog)
-  .delete(protect, deleteBlog)
-  .get(getSingleBlog);
+  .delete(protect, deleteBlog);
 
 module.exports = router;
