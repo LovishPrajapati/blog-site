@@ -1,16 +1,63 @@
 body {
-  background-color: #ffffe2;
   margin: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: aliceblue;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/* Navbar --starts--*/
+.search-header {
+  margin-top: 15px;
 }
 
-a {
+.header-search-button {
+  margin-top: 15px;
+}
+/* Navbar --ends--*/
+
+/* Login starts */
+
+.card {
+  height: 250px;
+}
+
+.card img {
+  height: 40%;
+}
+
+.card .card-body {
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.login-form {
+  width: 60%;
+  margin: auto;
+  margin-top: 15%;
+  justify-content: center;
+}
+
+.signup-form {
+  width: 40%;
+  margin: 150px auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .signup-form {
+    width: 80%;
+    margin: 60px auto;
+  }
+}
+
+.signup-form .form-control {
+  margin: 15px auto;
+}
+
+.hint-text {
+  margin-top: 10px;
+}
+
+.hint-text a {
   text-decoration: none;
 }
