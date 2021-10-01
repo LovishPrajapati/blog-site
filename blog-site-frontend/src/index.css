@@ -68,3 +68,13 @@ body {
   justify-content: center;
   margin-top: 30vh;
 }
+
+.home-row {
+  margin-top: 30vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .home-row {
+    margin-top: 10vh;
+  }
+}

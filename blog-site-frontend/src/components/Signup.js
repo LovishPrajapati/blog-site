@@ -124,9 +124,12 @@ function Signup() {
             </div>
 
             <div className="form-group">
-              <button type="submit" className="btn btn-success btn-lg">
+              <button type="submit" className="btn btn-success">
                 Sign Up
               </button>
+              <Link to="/" style={{ marginLeft: "10px" }}>
+                <button className="btn btn-danger ">Go Back</button>
+              </Link>
             </div>
           </form>
           <div className="hint-text">

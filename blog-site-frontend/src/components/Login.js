@@ -93,7 +93,9 @@ function Login() {
             <button type="submit" className="btn btn-success">
               Sign in
             </button>
-
+            <Link to="/" style={{ marginLeft: "10px" }}>
+              <button className="btn btn-danger ">Go Back</button>
+            </Link>
             <div className="hint-text">
               Don't have an account? <Link to="/signup">Sign Up</Link>
             </div>

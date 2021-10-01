@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { DataLayer } from "../DataLayer";
+// import { DataLayer } from "../DataLayer";
 
 function Header() {
-  const { user } = useContext(DataLayer);
+  // const { user } = useContext(DataLayer);
 
   return (
     <div className="container mt-2">
@@ -19,7 +19,7 @@ function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand ml-auto" href="/">
             Blog-It
           </a>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
