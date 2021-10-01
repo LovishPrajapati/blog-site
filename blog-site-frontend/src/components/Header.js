@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataLayer } from "../DataLayer";
 
 function Header() {
+  const { user } = useContext(DataLayer);
+
   return (
-    <div class="container mt-2">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <div class="container-fluid">
+    <div className="container mt-2">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div className="container-fluid">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo03"
@@ -14,21 +17,21 @@ function Header() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="/">
+          <a className="navbar-brand" href="/">
             Blog-It
           </a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <form class="d-flex">
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <form className="d-flex">
               <input
-                class="form-control me-2 search-header"
+                className="form-control me-2 search-header"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
               <button
-                class="btn btn-outline-success header-search-button"
+                className="btn btn-outline-success header-search-button"
                 type="submit"
               >
                 Search

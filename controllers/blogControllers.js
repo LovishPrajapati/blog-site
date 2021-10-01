@@ -62,9 +62,9 @@ const updateBlog = async (req, res, next) => {
 
 const getAllBlogs = async (req, res, next) => {
   try {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find();
     res.status(200).json({
-      blogs: blogs,
+      blogs,
     });
   } catch (error) {
     console.log(error);

@@ -61,3 +61,10 @@ body {
 .hint-text a {
   text-decoration: none;
 }
+
+.spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30vh;
+}
