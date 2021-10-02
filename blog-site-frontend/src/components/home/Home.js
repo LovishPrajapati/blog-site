@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { DataLayer } from "../DataLayer";
+import { DataLayer } from "../../DataLayer";
+import "./home.css";
 
 function Home() {
   const { user } = useContext(DataLayer);

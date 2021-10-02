@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Header from "./Header";
-import { DataLayer } from "../DataLayer";
+import Header from "../header/Header";
+import { DataLayer } from "../../DataLayer";
 import axios from "axios";
-import Spinner from "./Spinner";
+import Spinner from "../spinner/Spinner";
+import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");

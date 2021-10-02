@@ -1,0 +1,23 @@
+.signup-form {
+  width: 40%;
+  margin: 150px auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .signup-form {
+    width: 80%;
+    margin: 60px auto;
+  }
+}
+
+.signup-form .form-control {
+  margin: 15px auto;
+}
+
+.hint-text {
+  margin-top: 10px;
+}
+
+.hint-text a {
+  text-decoration: none;
+}

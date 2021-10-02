@@ -6,18 +6,6 @@ body {
   color: aliceblue;
 }
 
-/* Navbar --starts--*/
-.search-header {
-  margin-top: 15px;
-}
-
-.header-search-button {
-  margin-top: 15px;
-}
-/* Navbar --ends--*/
-
-/* Login starts */
-
 .card {
   height: 250px;
 }
@@ -26,55 +14,9 @@ body {
   height: 40%;
 }
 
-.card .card-body {
-  overflow-y: hidden;
+.card .card-body,
+.card-title {
+  overflow: hidden;
+  white-space: normal;
   text-overflow: ellipsis;
-}
-
-.login-form {
-  width: 60%;
-  margin: auto;
-  margin-top: 15%;
-  justify-content: center;
-}
-
-.signup-form {
-  width: 40%;
-  margin: 150px auto;
-}
-
-@media only screen and (max-width: 768px) {
-  .signup-form {
-    width: 80%;
-    margin: 60px auto;
-  }
-}
-
-.signup-form .form-control {
-  margin: 15px auto;
-}
-
-.hint-text {
-  margin-top: 10px;
-}
-
-.hint-text a {
-  text-decoration: none;
-}
-
-.spinner {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 30vh;
-}
-
-.home-row {
-  margin-top: 30vh;
-}
-
-@media only screen and (max-width: 768px) {
-  .home-row {
-    margin-top: 10vh;
-  }
 }

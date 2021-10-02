@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-// import { DataLayer } from "../DataLayer";
+import { DataLayer } from "../../DataLayer";
 
 function Header() {
-  // const { user } = useContext(DataLayer);
+  const { user } = useContext(DataLayer);
 
   return (
     <div className="container mt-2">

@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Header from "./Header";
-import Spinner from "./Spinner";
-import { DataLayer } from "../DataLayer";
+import Header from "../header/Header";
+import Spinner from "../spinner/Spinner";
+import { DataLayer } from "../../DataLayer";
 import axios from "axios";
+import "./signup.css";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
