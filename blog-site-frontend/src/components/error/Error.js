@@ -9,8 +9,8 @@ function Err() {
         <div className="col-md-12">
           <div className="error-main">
             <h1>Oops!</h1>
-            <h2>404 Not Found</h2>
-            <div>Sorry, an error has occured, Requested page not found!</div>
+            <h2>Something Went Wrong</h2>
+            <div>Sorry, an error has occured, Try again later!</div>
             <div className="mt-3">
               <Link to="/">
                 <button className="btn btn-danger">Take Me Home </button>

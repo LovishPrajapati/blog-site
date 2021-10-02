@@ -1,9 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../header/Header";
 import Spinner from "../spinner/Spinner";
-import { DataLayer } from "../../DataLayer";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./signup.css";
 
 function Signup() {
@@ -15,18 +16,13 @@ function Signup() {
   const [isLoading, setisLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const { user, setUser } = useContext(DataLayer);
-
   const history = useHistory();
-  useEffect(() => {
-    if (user) history.push("/posts");
-  });
 
   const signupHandler = async (e) => {
     e.preventDefault();
     setisLoading(true);
     try {
-      const { data } = await axios.post(
+      await axios.post(
         "/api/register",
         {
           firstname: firstName,
@@ -41,14 +37,27 @@ function Signup() {
           },
         }
       );
-      setUser(data);
       setisLoading(false);
-      localStorage.setItem("userData", JSON.stringify(data));
-      alert(`${data.name}, You are successfully registered `);
-      history.push(`/posts`);
+      toast.success("🦄 Congratulations! Account Created.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      setFirstName("");
+      setEmail("");
+      setLastName("");
+      setConfirmPassword("");
+      setPassword("");
+      setErrors({});
+      setTimeout(() => history.push(`/login`), 2000);
     } catch (error) {
-      console.log(error);
       setErrors(error.response.data.error);
+      setConfirmPassword("");
+      setPassword("");
       setisLoading(false);
     }
   };
@@ -60,6 +69,17 @@ function Signup() {
         <Spinner />
       ) : (
         <div className="signup-form container">
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover={false}
+          />
           <form onSubmit={signupHandler}>
             <h2>Sign Up</h2>
             <p>Please fill in this form to create an account!</p>

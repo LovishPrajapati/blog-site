@@ -1,7 +1,24 @@
-.search-header {
-  margin-top: 15px;
+form {
+  margin-left: auto;
 }
 
 .header-search-button {
-  margin-top: 15px;
+  margin-left: 8px;
+}
+
+.user-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  font-weight: bold;
+}
+
+.user-logout {
+  color: rgb(233, 64, 64);
+}
+
+.user-logout:hover {
+  color: red;
+  cursor: pointer;
 }

@@ -80,9 +80,7 @@ const protect = asyncHandler(async (req, res, next) => {
     try {
       token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, privateKey);
-      req.user = await User.findById(decoded.token)
-        .populate("blogs")
-        .select("-password");
+      req.user = await User.findById(decoded.token).select("-password");
       next();
     } catch (error) {
       res.status(401).json({

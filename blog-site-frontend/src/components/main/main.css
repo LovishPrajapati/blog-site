@@ -1,25 +1,6 @@
-.user-editable-delete {
-  color: rgb(235, 97, 97);
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.user-editable-delete:hover {
-  color: red;
-}
-
-.user-editable-edit {
-  color: rgb(79, 95, 236);
-  cursor: pointer;
-}
-
-.user-editable-edit:hover {
-  color: rgb(0, 21, 207);
-}
-
 .user-editable {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .blog-modify-date {
@@ -36,4 +17,13 @@
   font-size: 11px;
 }
 
-/* main ends */
+.add-blog-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main {
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

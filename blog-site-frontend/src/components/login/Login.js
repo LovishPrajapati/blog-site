@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
@@ -13,13 +13,9 @@ function Login() {
   const [isLoading, setisLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const { user, setUser } = useContext(DataLayer);
+  const { setUser } = useContext(DataLayer);
 
   const history = useHistory();
-
-  useEffect(() => {
-    if (user) history.push("/posts");
-  }, [user, history]);
 
   const loginHandler = async (e) => {
     e.preventDefault();

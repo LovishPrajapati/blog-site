@@ -2,7 +2,10 @@ const User = require("../models/User");
 const Blog = require("../models/Blog");
 
 const addBlog = async (req, res, next) => {
-  const blog = new Blog(req.body);
+  const blog = new Blog({
+    ...req.body,
+    createdBy: req.user.firstname + " " + req.user.lastname,
+  });
   const user = await User.findById(req.user._id);
   user.blogs.push(blog);
   if ((await user.save()) && (await blog.save())) {
@@ -76,7 +79,7 @@ const getSingleBlog = async (req, res, next) => {
   try {
     const blog = await Blog.findById(req.params.blogId);
     res.status(200).json({
-      blog: blog,
+      blog,
     });
   } catch (error) {
     console.log(error);

@@ -9,11 +9,11 @@ const {
   getSingleBlog,
 } = require("../controllers/blogControllers");
 
-router.route(":userId/blog/").post(protect, addBlog);
-router.route("/").get(getAllBlogs);
-router.route("/blog/:blogId").get(getSingleBlog);
+router.route("/:userId/blog/").post(protect, addBlog);
+router.route("/").get(protect, getAllBlogs);
+router.route("/blog/:blogId").get(protect, getSingleBlog);
 router
-  .route(":userId/blog/:blogId")
+  .route("/:userId/blog/:blogId")
   .put(protect, updateBlog)
   .delete(protect, deleteBlog);
 

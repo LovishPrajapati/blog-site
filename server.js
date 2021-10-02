@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const blogRoutes = require("./routes/blogRoutes");
+const morgon = require("morgan");
 
 mongoose
   .connect(process.env.DBURI, {
@@ -15,10 +16,9 @@ mongoose
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(morgon("tiny"));
 
 const PORT = process.env.PORT || 5000;
-
-app.get("/", (req, res) => res.send("hello world"));
 
 app.use("/api", authRoutes);
 app.use("/api/user", blogRoutes);

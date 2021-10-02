@@ -4,56 +4,70 @@ import Header from "../header/Header";
 import { motion } from "framer-motion";
 import { DataLayer } from "../../DataLayer";
 import { useHistory } from "react-router-dom";
+import AddBlog from "../addBlog/AddBlog";
 import "./main.css";
 
 function Main() {
   const [blogs, setBlogs] = useState([]);
-
-  const { user } = useContext(DataLayer);
+  const { user, show, setShow } = useContext(DataLayer);
 
   const history = useHistory();
 
   useEffect(() => {
-    if (!user) history.push("/");
-  }, [user, history]);
-
-  useEffect(() => {
     axios
-      .get(`/api/user/`)
+      .get(`/api/user/`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
       .then((res) => {
         setBlogs(res.data.blogs);
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => {
+        console.log(err);
+        history.push("/error");
+      });
+
+    return () => {
+      setBlogs([]);
+    };
+  }, [user.token, history]);
+
+  const toogleForm = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+
+  const handleBlogClick = (e, blog) => {
+    e.preventDefault();
+    history.push(`/blog/${blog._id}`);
+  };
 
   return (
     <>
+      <AddBlog show={show} />
       <Header />
-      <div className="container mt-5">
+      <div className="container mt-4">
+        <div className="add-blog-button mb-2 ">
+          <button className="btn btn-success" onClick={(e) => toogleForm(e)}>
+            Add Blog
+          </button>
+        </div>
         <div className="row">
           {blogs.length
             ? blogs.map((blog) => (
-                <div className="col-lg-4 col-md-6" key={blog.id}>
+                <div
+                  className="col-lg-4 col-md-6"
+                  key={blog._id}
+                  onClick={(e) => handleBlogClick(e, blog)}
+                >
                   <motion.div
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.8 }}
                   >
-                    <div className="card mb-4">
+                    <div className="card mb-4 main">
                       <div className="user-editable">
-                        <div>
-                          {user.blogs.includes(blog._id) ? (
-                            <div className="m-2">
-                              <i
-                                class="fas fa-edit user-editable-edit"
-                                onClick={() => console.log("edit clicked")}
-                              ></i>
-                              <i
-                                class="fas fa-trash user-editable-delete"
-                                onClick={() => console.log("delete clicked")}
-                              ></i>
-                            </div>
-                          ) : null}
-                        </div>
                         <div>
                           <span className="blog-modify-date text-muted">
                             Modified on:{" "}
@@ -76,12 +90,12 @@ function Main() {
                           {blog.title}
                         </div>
                       </div>
-                      <div className="card-body">
+                      {/* <div className="card-body">
                         <div className="card-text">
                           <strong className="text-muted">Content:</strong>{" "}
                           {blog.content}
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </motion.div>
                 </div>

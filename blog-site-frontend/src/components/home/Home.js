@@ -1,14 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { DataLayer } from "../../DataLayer";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 function Home() {
-  const { user } = useContext(DataLayer);
-  const history = useHistory();
-  useEffect(() => {
-    if (user) history.push("/posts");
-  });
   return (
     <div className="container mt-5">
       <div className="row home-row">
