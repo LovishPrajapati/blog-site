@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "client": "npm start --prefix blog-site-frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm install --prefix blog-site-frontend && npm run build --prefix blog-site-frontend"
   },
   "author": "Lovish Kumar Prajapati",
   "license": "ISC",
