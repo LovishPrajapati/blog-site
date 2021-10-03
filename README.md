@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-=======
+
 # blog-site
 
 View Live Demo at: http://blog-site-assign.herokuapp.com/
 
->>>>>>> f20002302ee1cf15f7ad839293a41e20bae944a3
 # Blog-it Blog Platform
 
 ## Features
@@ -68,7 +66,3 @@ test@example.com
 123456789
 
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> f20002302ee1cf15f7ad839293a41e20bae944a3
