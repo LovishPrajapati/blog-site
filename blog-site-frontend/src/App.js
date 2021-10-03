@@ -28,7 +28,7 @@ function App() {
         <Route path="/signup" exact>
           {!user ? <Signup /> : <Redirect to="/posts" />}
         </Route>
-        <Route path="/blog/:blogId" exact>
+        <Route path="/blog/:blogId">
           {user ? <SingleBlog /> : <Redirect to="/" />}
         </Route>
         <Route path="*">

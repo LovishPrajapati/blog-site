@@ -16,6 +16,9 @@ form {
 
 .user-logout {
   color: rgb(233, 64, 64);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user-logout:hover {

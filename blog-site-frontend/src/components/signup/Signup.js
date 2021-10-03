@@ -6,6 +6,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./signup.css";
+import { toastConfig } from "../../toast";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -38,15 +39,7 @@ function Signup() {
         }
       );
       setisLoading(false);
-      toast.success("🦄 Congratulations! Account Created.", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.success("🦄 Congratulations! Account Created.", toastConfig);
       setFirstName("");
       setEmail("");
       setLastName("");
@@ -58,6 +51,7 @@ function Signup() {
       setErrors(error.response.data.error);
       setConfirmPassword("");
       setPassword("");
+      toast.error("Something went wrong.Try again", toastConfig);
       setisLoading(false);
     }
   };

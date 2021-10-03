@@ -5,6 +5,9 @@ import Header from "../header/Header";
 import { DataLayer } from "../../DataLayer";
 import axios from "axios";
 import Spinner from "../spinner/Spinner";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toastConfig } from "../../toast";
 import "./login.css";
 
 function Login() {
@@ -34,19 +37,34 @@ function Login() {
         }
       );
       setUser(data);
+      toast.success("Success", toastConfig);
       localStorage.setItem("userData", JSON.stringify(data));
       setisLoading(false);
-      history.push(`/posts`);
+      setTimeout(() => {
+        history.push("/posts");
+      }, 2000);
     } catch (e) {
       setisLoading(false);
       console.log(e);
       setError(e.response.data.error);
+      toast.error("Failure! Try again.", toastConfig);
     }
   };
 
   return (
     <>
       <Header />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
       {isLoading ? (
         <Spinner />
       ) : (
