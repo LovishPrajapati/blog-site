@@ -84,7 +84,7 @@ function SingleBlog() {
           {user.blogs.length ? (
             user.blogs.includes(blogId) ? (
               <>
-                {updateMode ? (
+                {updateMode ? ( // if update mode is on change edit button to save button
                   <button
                     className="btn btn-primary"
                     onClick={(e) => updateBlog(e)}
@@ -151,7 +151,6 @@ function SingleBlog() {
           </>
         ) : null}
       </div>
-      ;
     </>
   );
 }

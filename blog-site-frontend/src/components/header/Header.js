@@ -5,6 +5,7 @@ import "./header.css";
 function Header() {
   const { user } = useContext(DataLayer);
 
+  // clear local storage and redirect to login
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem("userData");
@@ -15,7 +16,7 @@ function Header() {
     <div className="container mt-2">
       <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
         <div className="container-fluid">
-          {window.location.pathname === "/posts" ? (
+          {window.location.pathname === "/posts" ? ( // show menu button only in /posts route
             <button
               className="navbar-toggler"
               type="button"
@@ -35,7 +36,7 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             {window.location.pathname === "/posts" ? (
               <form className="d-flex">
-                <input
+                {/* <input
                   className="form-control"
                   type="search"
                   placeholder="Search"
@@ -46,7 +47,7 @@ function Header() {
                   type="submit"
                 >
                   Search
-                </button>
+                </button> */}
                 <span className="user-name">{user.name.split(" ")[0]}</span>
                 <i
                   className="fas fa-sign-out-alt fa-2x user-logout"

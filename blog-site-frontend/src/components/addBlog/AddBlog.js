@@ -12,6 +12,7 @@ function AddBlog() {
     e.preventDefault();
     try {
       if (title || content) {
+        // At least one of both is required to add a blog i.e. cannot add blog with empty title and body
         const { data } = await axios.post(
           `/api/user/${user.id}/blog`,
           { title, content },
@@ -22,10 +23,9 @@ function AddBlog() {
             },
           }
         );
-        setUser({ ...user, blogs: user.blogs.push(data.blog._id) });
+        setUser({ ...user, blogs: user.blogs.push(data.blog._id) }); //sync db with local storage
         window.localStorage.setItem("userData", JSON.stringify(user));
         window.location.href = "/posts";
-        // window.location.href = `/blog/${data.blog._id}`;
       } else {
         alert("At least one field is required");
         setShow(false);

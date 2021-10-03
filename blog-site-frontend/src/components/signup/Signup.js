@@ -40,6 +40,7 @@ function Signup() {
       );
       setisLoading(false);
       toast.success("🦄 Congratulations! Account Created.", toastConfig);
+      // clear fields after successful creation
       setFirstName("");
       setEmail("");
       setLastName("");
@@ -49,6 +50,7 @@ function Signup() {
       setTimeout(() => history.push(`/login`), 2000);
     } catch (error) {
       setErrors(error.response.data.error);
+      // clear password fields only
       setConfirmPassword("");
       setPassword("");
       toast.error("Something went wrong.Try again", toastConfig);
@@ -64,7 +66,7 @@ function Signup() {
       ) : (
         <div className="signup-form container">
           <ToastContainer
-            position="top-right"
+            position="top-center"
             autoClose={5000}
             hideProgressBar={false}
             newestOnTop={false}

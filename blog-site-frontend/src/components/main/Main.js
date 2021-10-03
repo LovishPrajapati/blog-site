@@ -78,11 +78,6 @@ function Main() {
                           </span>
                         </div>
                       </div>
-                      {/* <img
-                      src="https://cdn.hasselblad.com/hasselblad-com/6cb604081ef3086569319ddb5adcae66298a28c5_x1d-ii-sample-01-web.jpg?auto=format&q=97"
-                      className="card-img-top"
-                      alt="..."
-                    /> */}
                       <div className="card-header">
                         <div className="card-title ">
                           {" "}
@@ -90,12 +85,6 @@ function Main() {
                           {blog.title}
                         </div>
                       </div>
-                      {/* <div className="card-body">
-                        <div className="card-text">
-                          <strong className="text-muted">Content:</strong>{" "}
-                          {blog.content}
-                        </div>
-                      </div> */}
                     </div>
                   </motion.div>
                 </div>
