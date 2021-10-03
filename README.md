@@ -1,5 +1,7 @@
 # blog-site
 
+View Live Demo at: http://blog-site-assign.herokuapp.com/
+
 # Blog-it Blog Platform
 
 ## Features
