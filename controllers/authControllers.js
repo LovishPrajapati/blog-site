@@ -7,23 +7,27 @@ const privateKey = process.env.SECRETKEY;
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  if (user && (await user.authenticate(password))) {
-    const token = jwt.sign({ token: user._id }, privateKey, {
-      algorithm: "HS256",
-    });
-    res.status(200).json({
-      id: user._id,
-      name: user.fullname,
-      email: user.email,
-      profile: user.profile,
-      blogs: user.blogs,
-      token,
-    });
-  } else {
-    res.status(400).json({
-      error: "Invalid Email or Password",
-    });
+  try {
+    const user = await User.findOne({ email });
+    if (user && (await user.authenticate(password))) {
+      const token = jwt.sign({ token: user._id }, privateKey, {
+        algorithm: "HS256",
+      });
+      res.status(200).json({
+        id: user._id,
+        name: user.fullname,
+        email: user.email,
+        profile: user.profile,
+        blogs: user.blogs,
+        token,
+      });
+    } else {
+      res.status(400).json({
+        error: "Invalid Email or Password",
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
